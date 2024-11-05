@@ -21,10 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
-          fetch-depth: 0
-      - name: test git-cmd
-        run: |
-          &"c:\program files/git/git-cmd.exe" "git status & exit"        
+          fetch-depth: 0 
           
       - name: GetLTA
         uses: LieberLieber/setup-LemonTree.Automation@v5
