@@ -2,6 +2,6 @@
 # It could instead be added as an additional section to $GIT_DIR/config.
 # (note that '\' need to be escaped).
 [bugtraq]
-  url = https://github.com/LieberLieber/LemonTree.PCS.Demo/issues/%BUGID%
+  url = https://github.com/LieberLieber/VacuumCleanerRobotModel/issues/%BUGID%
   loglinkregex = "#\\d+"
   logregex = [\\d+]
