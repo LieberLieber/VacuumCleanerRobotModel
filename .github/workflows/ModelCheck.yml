@@ -7,8 +7,8 @@ name: Verify Modelcheck
 
 on:
  push:
-  branches-ignore:
-      - main
+#  branches-ignore:
+#      - main
 
 env:
   ModelName: VacuumCleanerRobotModel.qeax
