@@ -1,0 +1,40 @@
+# Copyright (c) Robert Bosch GmbH
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+name: LTA ConsistencyCheck
+
+on:
+ push:
+   branches:
+      - main
+
+env:
+  ModelName: VacuumCleanerRobotModel.qeax
+
+jobs:
+  ConsistencyCheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - name: test git-cmd
+        run: |
+          &"c:\program files/git/git-cmd.exe" "git status & exit"        
+          
+      - name: GetLTA
+        uses: LieberLieber/setup-LemonTree.Automation@v5
+        id: GetLTA
+        with:
+          License: ${{secrets.LTALICENSE}}
+
+      - name: ConsistencyCheck
+        run: |
+          &"${{steps.GetLTA.outputs.LemonTreeAutomationExecutable}}" ConsistencyCheck --Model ${{env.ModelName}}
+ 
+     
+    
