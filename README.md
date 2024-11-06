@@ -4,3 +4,9 @@ This [repo](https://github.com/LieberLieber/VacuumCleanerRobotModel) demonstrate
 
 ![](https://github.com/LieberLieber/VacuumCleanerRobotModel/blob/main/images/RobotVacuumCleanerLemonTree.jpg?raw=true)
 
+# Pipeline Status
+
+[![Model Check](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/ModelCheck.yml/badge.svg)](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/ModelCheck.yml)
+
+[![Consistency Check](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/ConsistencyCheck.yml/badge.svg)](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/ConsistencyCheck.yml)
+
