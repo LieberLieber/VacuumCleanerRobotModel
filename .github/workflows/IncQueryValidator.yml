@@ -32,4 +32,9 @@ jobs:
           license: "${{ secrets.incquery_ea_validator_license }}"
           comment_on_pr: False
           fail_on: fatal
+      
+      - name: Output report
+        run: |
+          Get-Content "${{ runner.temp }}\validation_result\report.html" >> $env:GITHUB_STEP_SUMMARY
+          exit 0
 
