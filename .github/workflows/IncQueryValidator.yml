@@ -32,4 +32,17 @@ jobs:
           license: "${{ secrets.incquery_ea_validator_license }}"
           comment_on_pr: False
           fail_on: fatal
+      
+      - name: Publish report to nexus
+        id: publishReport
+        if: always()
+        shell: pwsh
+        run: |
+          while (Test-Path Alias:curl) {Remove-Item Alias:curl} #remove the alias binding from curl to Invoke-WebRequest
+          $filename = "https://nexus.lieberlieber.com/repository/VacuumCleanerRobotModel/IncQueryValidatorReports/${{steps.CommitIds.outputs.CommitID}}_report.html"
+          curl "-u${{secrets.NEXUSAUTHENTICATION}}" -T "${{ runner.temp }}\validation_result\report.html" "$filename"
+          $Message = "# [Detailed Validation Report]($filename)"
+          write-output "$Message"
+          write-output "$Message" >> $env:GITHUB_STEP_SUMMARY
+          exit 0
 
