@@ -4,4 +4,4 @@
 [bugtraq]
   url = https://github.com/LieberLieber/VacuumCleanerRobotModel/issues/%BUGID%
   loglinkregex = "#\\d+"
-  logregex = [\\d+]
+  logregex = \\d+
