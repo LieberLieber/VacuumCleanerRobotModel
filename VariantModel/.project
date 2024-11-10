@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>VacuumCleanerRobot</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.ps.consul.eclipse.core.ConsulNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>VacuumCleanerRobotModel.qeax</name>
+			<type>1</type>
+			<location>C:/!Git/TDSE/VacuumCleanerRobotModel/VacuumCleanerRobotModel.qeax</location>
+		</link>
+	</linkedResources>
+</projectDescription>
