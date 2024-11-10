@@ -91,9 +91,15 @@
           <cm:constant cm:id="iScwemK5OpOkFDJzR" cm:type="ps:string">pkalenda</cm:constant>
         </cm:property>
         <cm:property cm:id="izn3RRLZD_SHn6ieC" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
-          <cm:constant cm:id="i6CF2mUJCggG4ghvA" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+          <cm:constant cm:id="i6CF2mUJCggG4ghvA" cm:type="ps:datetime">2024-11-10T18:31:31.634Z</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iYTDr142hNlYkDWlL" cm:type="ps:boolean" cm:fixed="true" cm:name="keepconstraints">
+          <cm:constant cm:id="iJU1Dnik0WHPbHujj" cm:type="ps:boolean">true</cm:constant>
         </cm:property>
       </cm:properties>
+      <cm:vname>
+        <cm:mimedesc cm:id="iVkTHfeQHEIkY5GpC" cm:mimetype="text/plain" cm:encoding="utf-8">Model</cm:mimedesc>
+      </cm:vname>
     </cm:element>
     <cm:element cm:id="iLIVbN9tc3Jp-2-AL" cm:type="ps:file" cm:class="ps:source" cm:default="on">
       <cm:relations cm:id="isNstZD4frE9iWe-qx0bNDYwU5Pm" cm:class="ps:parents">
@@ -106,7 +112,7 @@
           <cm:constant cm:id="iWBGbhyeNO5K0E--x" cm:type="ps:path">VacuumCleanerRobotModel.qeax</cm:constant>
         </cm:property>
         <cm:property cm:id="iRn5MXQBsYxlke1dS" cm:type="ps:directory" cm:fixed="true" cm:name="dir">
-          <cm:constant cm:id="i1Er6ySo-T3rZ43Jc" cm:type="ps:directory">..\VacuumCleanerRobotModel</cm:constant>
+          <cm:constant cm:id="i1Er6ySo-T3rZ43Jc" cm:type="ps:directory"></cm:constant>
         </cm:property>
         <cm:property cm:id="iB2BUiLMFKwMZlaBR" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:Source">
           <cm:constant cm:id="iwoukjY2c16flYe5g" cm:type="ps:string">pkalenda</cm:constant>
@@ -118,9 +124,15 @@
           <cm:constant cm:id="ihsZHfobl9JKKghn_" cm:type="ps:string">pkalenda</cm:constant>
         </cm:property>
         <cm:property cm:id="iXbuijnjjbd0LmnxV" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
-          <cm:constant cm:id="i8y5BNkuxgEqlIpn7" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+          <cm:constant cm:id="i8y5BNkuxgEqlIpn7" cm:type="ps:datetime">2024-11-10T18:35:24.789Z</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iSCakWUs9Qim2b537" cm:type="ps:directory" cm:fixed="true" cm:name="srcdir">
+          <cm:constant cm:id="iqsUU2P2z31qgEFct" cm:type="ps:directory">C:\!Git\TDSE\VacuumCleanerRobotModel</cm:constant>
         </cm:property>
       </cm:properties>
+      <cm:vname>
+        <cm:mimedesc cm:id="iMsmjlxvmgMhcLJut" cm:mimetype="text/plain" cm:encoding="utf-8">VacuumCleanerRobotModel.qeax</cm:mimedesc>
+      </cm:vname>
     </cm:element>
   </cm:elements>
 </cm:consulmodel>
