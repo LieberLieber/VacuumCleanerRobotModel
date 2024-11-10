@@ -20,6 +20,11 @@
   </cm:head>
   <cm:elements cm:rootid="i9QvMPBHsksg-ORey">
     <cm:element cm:id="i9QvMPBHsksg-ORey" cm:name="VacuumCleanerRobotFamily" cm:type="ps:family" cm:class="ps:family" cm:default="on">
+      <cm:relations cm:id="ihwlEoCgzgMlfHRHw" cm:class="ps:children">
+        <cm:relation cm:id="ir-6qhvi8QWJgOKsx" cm:type="ps:optional">
+          <cm:target cm:id="ilFkHGgfR7ip1rpyh">./igKYoBNxg7Y655NYB</cm:target>
+        </cm:relation>
+      </cm:relations>
       <cm:properties>
         <cm:property cm:id="ip1PE5OzgeD4XsdvL" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:Source">
           <cm:constant cm:id="ieO7HODWQg4q2fFJV" cm:type="ps:string">pkalenda</cm:constant>
@@ -31,7 +36,89 @@
           <cm:constant cm:id="iq9h-diCqqWUQ0QYH" cm:type="ps:string">pkalenda</cm:constant>
         </cm:property>
         <cm:property cm:id="i7NHtQtl6JK8oAPbp" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
-          <cm:constant cm:id="iosIpzv2sXAl2feWL" cm:type="ps:datetime">2024-11-10T13:07:38.680Z</cm:constant>
+          <cm:constant cm:id="iosIpzv2sXAl2feWL" cm:type="ps:datetime">2024-11-10T16:11:52.230Z</cm:constant>
+        </cm:property>
+      </cm:properties>
+    </cm:element>
+    <cm:element cm:id="igKYoBNxg7Y655NYB" cm:type="ps:component" cm:class="ps:component" cm:default="on">
+      <cm:relations cm:id="ifAz9nXfXEBOqe_Xx" cm:class="ps:parents">
+        <cm:relation cm:id="ik3jEZXEqc-vOxyO_" cm:type="ps:parent">
+          <cm:target cm:id="iL_T9nBprrQ3gezSG">./i9QvMPBHsksg-ORey</cm:target>
+        </cm:relation>
+      </cm:relations>
+      <cm:relations cm:id="iFldGIpEKOTWaqIYG" cm:class="ps:children">
+        <cm:relation cm:id="iKMeKS8OCpwoJttIz" cm:type="ps:mandatory" cm:range="n">
+          <cm:target cm:id="in0nRyXCLzi2tU6Pg">./i8YAUR83IBtbAC4nn</cm:target>
+        </cm:relation>
+      </cm:relations>
+      <cm:properties>
+        <cm:property cm:id="iFWMu5n94zavHiTD0" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:Source">
+          <cm:constant cm:id="izhg4dFn9NKvN2OLM" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iCFEYVeNuv662GRmx" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Created">
+          <cm:constant cm:id="ib63ymHesV_cqwU62" cm:type="ps:datetime">2024-11-10T16:11:52.230Z</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iudtKJ3VAXLYV67j4" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:ChangedBy">
+          <cm:constant cm:id="iycz1BzyAQIuWYG0Z" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="ivR5QHaUf4gqCuPZ-" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
+          <cm:constant cm:id="iLSyoLAqOjKfykXcU" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+        </cm:property>
+      </cm:properties>
+      <cm:vname>
+        <cm:mimedesc cm:id="icSYL11QsLYn0VBub" cm:mimetype="text/plain" cm:encoding="utf-8">EA Projects</cm:mimedesc>
+      </cm:vname>
+    </cm:element>
+    <cm:element cm:id="i8YAUR83IBtbAC4nn" cm:name="Model" cm:type="ps:sparxseap" cm:class="ps:part" cm:default="on">
+      <cm:relations cm:id="iwVxH3QbMxNv1u6sE" cm:class="ps:parents">
+        <cm:relation cm:id="iL-KWRVHxHnAqzEQb" cm:type="ps:parent">
+          <cm:target cm:id="itfN3k7OBFhW0dlFY">./igKYoBNxg7Y655NYB</cm:target>
+        </cm:relation>
+      </cm:relations>
+      <cm:relations cm:id="i9R7OIxIG07aZSRQLvFM89PzEZ9b" cm:class="ps:children">
+        <cm:relation cm:id="io0jKVhiQtBBT7zSJDFTV6JuVBfi" cm:type="ps:mandatory">
+          <cm:target cm:id="ixJVNoCuKf6BiDeBjyCrpqHYRTrm">./iLIVbN9tc3Jp-2-AL</cm:target>
+        </cm:relation>
+      </cm:relations>
+      <cm:properties>
+        <cm:property cm:id="iJVzM9QYAiCnU1Sxd" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:Source">
+          <cm:constant cm:id="imwJH7SmB19nq3w9Z" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="imgIh4cEIzEb-gX1a" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Created">
+          <cm:constant cm:id="iz1U48ZZYVy82DXDF" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+        </cm:property>
+        <cm:property cm:id="ijkl1QAQQlE0N9kYO" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:ChangedBy">
+          <cm:constant cm:id="iScwemK5OpOkFDJzR" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="izn3RRLZD_SHn6ieC" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
+          <cm:constant cm:id="i6CF2mUJCggG4ghvA" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+        </cm:property>
+      </cm:properties>
+    </cm:element>
+    <cm:element cm:id="iLIVbN9tc3Jp-2-AL" cm:type="ps:file" cm:class="ps:source" cm:default="on">
+      <cm:relations cm:id="isNstZD4frE9iWe-qx0bNDYwU5Pm" cm:class="ps:parents">
+        <cm:relation cm:id="iNwbZwghUT6iO-J-wmsNwnEFzOWd" cm:type="ps:parent">
+          <cm:target cm:id="iSXijVi3ZphZwXAzHDSXq-nZaqna">./i8YAUR83IBtbAC4nn</cm:target>
+        </cm:relation>
+      </cm:relations>
+      <cm:properties>
+        <cm:property cm:id="iiDObXSIo17sz7jHg" cm:type="ps:path" cm:fixed="true" cm:name="file">
+          <cm:constant cm:id="iWBGbhyeNO5K0E--x" cm:type="ps:path">VacuumCleanerRobotModel.qeax</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iRn5MXQBsYxlke1dS" cm:type="ps:directory" cm:fixed="true" cm:name="dir">
+          <cm:constant cm:id="i1Er6ySo-T3rZ43Jc" cm:type="ps:directory">..\VacuumCleanerRobotModel</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iB2BUiLMFKwMZlaBR" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:Source">
+          <cm:constant cm:id="iwoukjY2c16flYe5g" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="i_-lcWwm-1Q-pmtOh" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Created">
+          <cm:constant cm:id="iTagsCJM8HXR0NTB4" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iMd3iKXj_UNr2TQjC" cm:type="ps:string" cm:fixed="true" cm:readonly="true" cm:name="ps:ChangedBy">
+          <cm:constant cm:id="ihsZHfobl9JKKghn_" cm:type="ps:string">pkalenda</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iXbuijnjjbd0LmnxV" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
+          <cm:constant cm:id="i8y5BNkuxgEqlIpn7" cm:type="ps:datetime">2024-11-10T16:13:43.047Z</cm:constant>
         </cm:property>
       </cm:properties>
     </cm:element>

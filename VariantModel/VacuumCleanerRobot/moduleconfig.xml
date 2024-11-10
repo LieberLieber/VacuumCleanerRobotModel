@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <moduleconfigs name="Default">
   <moduleconfig ignoreerrors="false" name="Default">
-    <input use="true">C:/!Git/TDSE/VacuumCleanerRobotModel</input>
-    <output clear="ask" create="ask" recover="true" use="true">C:/!Git/TDSE/VacuumCleanerRobotModel/TransformationResults/$(VARIANT)</output>
+    <input use="true">../VacuumCleanerRobotModel</input>
+    <output clear="ask" create="ask" recover="true" use="true">./TransformationResults/$(VARIANT)</output>
     <mode type="overwrite"/>
     <modelfilter use="false"/>
     <module exclude="" id="com.ps.consul.ui.transform.sparxsea.module" include="/variant" name="Create EA Project Variant" tname="Enterprise Architect Module"/>
