@@ -1,3 +1,5 @@
 /.obsidian/
 *.ldb
 /VariantModel/output
+/VariantModel/output
+/VariantModel/TransformationResults

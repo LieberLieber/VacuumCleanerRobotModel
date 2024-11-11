@@ -108,7 +108,7 @@
         </cm:relation>
       </cm:relations>
       <cm:properties>
-        <cm:property cm:id="iiDObXSIo17sz7jHg" cm:type="ps:path" cm:fixed="true" cm:name="file">
+        <cm:property cm:id="iiDObXSIo17sz7jHg" cm:type="ps:path" cm:fixed="true" cm:name="srcfile">
           <cm:constant cm:id="iWBGbhyeNO5K0E--x" cm:type="ps:path">VacuumCleanerRobotModel.qeax</cm:constant>
         </cm:property>
         <cm:property cm:id="iRn5MXQBsYxlke1dS" cm:type="ps:directory" cm:fixed="true" cm:name="dir">
@@ -124,10 +124,15 @@
           <cm:constant cm:id="ihsZHfobl9JKKghn_" cm:type="ps:string">pkalenda</cm:constant>
         </cm:property>
         <cm:property cm:id="iXbuijnjjbd0LmnxV" cm:type="ps:datetime" cm:fixed="true" cm:readonly="true" cm:name="ps:Changed">
-          <cm:constant cm:id="i8y5BNkuxgEqlIpn7" cm:type="ps:datetime">2024-11-10T18:35:24.789Z</cm:constant>
+          <cm:constant cm:id="i8y5BNkuxgEqlIpn7" cm:type="ps:datetime">2024-11-11T06:34:39.244Z</cm:constant>
         </cm:property>
         <cm:property cm:id="iSCakWUs9Qim2b537" cm:type="ps:directory" cm:fixed="true" cm:name="srcdir">
           <cm:constant cm:id="iqsUU2P2z31qgEFct" cm:type="ps:directory">C:\!Git\TDSE\VacuumCleanerRobotModel</cm:constant>
+        </cm:property>
+        <cm:property cm:id="iXpGNN_DitNmsLKRU" cm:type="ps:path" cm:fixed="true" cm:name="file">
+          <cm:calculate cm:id="in9ZIM4rJGple_n4d" cm:type="ps:path">
+            <cm:script cm:id="i-Q69SiyAxZzULqnt" cm:language="ps:pvscl" cm:type="ps:path">pv:Models(&apos;ps:vdm&apos;)-&gt;pv:Item(0)-&gt;pv:Name()+&apos;_VacuumCleanerRobot.qeax&apos;</cm:script>
+          </cm:calculate>
         </cm:property>
       </cm:properties>
       <cm:vname>
