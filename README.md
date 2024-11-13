@@ -12,3 +12,5 @@ This [repo](https://github.com/LieberLieber/VacuumCleanerRobotModel) demonstrate
 
 [![Consistency Check](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/IncQueryValidator.yml/badge.svg)](https://github.com/LieberLieber/VacuumCleanerRobotModel/actions/workflows/IncQueryValidator.yml)
 
+read me
+
