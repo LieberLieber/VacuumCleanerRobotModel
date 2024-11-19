@@ -1,0 +1,67 @@
+# Copyright (c) Robert Bosch GmbH and LieberLieber Software GmbH
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+name: Verfiy LTA Docker ConsistencyCheck
+
+on:
+ push:
+#   branches:
+#      - main
+
+env:
+  ModelName: VacuumCleanerRobotModel.qeax
+
+jobs:
+  ConsistencyCheck:
+    defaults:
+      run:
+        shell: pwsh
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0 
+
+      # create LemonTree.Automation License from Actions Secret    
+      - name: PrepareLTALicense 
+        run: |
+            '${{secrets.LTALICENSE}}' | Out-File -FilePath lta.lic    
+
+      # download Lemontree.Automation on a runner and setup the license
+      - name: PrepareLTA
+        run: |
+          $ltaLicenses = "$(Get-Location)/licenses"
+          $ltaData ="$(Get-Location)/data"
+
+          #prepare mapping directories for docker mapping
+          New-Item -ItemType Directory -Force -Path "$ltaLicenses"
+          New-Item -ItemType Directory -Force -Path "$ltaData"
+
+          Copy-Item -Path "/lta.lic" -Destination "$ltaLicenses" -Force 
+
+          #the models used for diffing need to be copied to the data folder
+          Copy-Item -Path "${{env.ModelName}}" -Destination "$ltaData" -Force 
+
+          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\A.qeax" -Destination "$ltaData" -Force 
+          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\B.qeax" -Destination "$ltaData" -Force 
+          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\Base.qeax" -Destination "$ltaData" -Force 
+
+          docker stop ltacli
+          docker rm ltacli
+          docker run -itd --name ltacli -v "${ltaData}:/data" -v "${ltaLicenses}:/app/licenses" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
+
+
+      - name: ConsistencyCheck
+        run: |
+          #setup docker exec
+          $LemonTreeExe = "docker exec -it ltacli ./lemontree.automation"
+          
+          &$LemonTreeExe ConsistencyCheck --Model "/data/${{env.ModelName}}"
+
+ 
+     
+    
