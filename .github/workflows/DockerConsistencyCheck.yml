@@ -14,7 +14,7 @@ env:
   ModelName: VacuumCleanerRobotModel.qeax
 
 jobs:
-  ConsistencyCheck:
+  ConsistencyCheckDocker:
     defaults:
       run:
         shell: pwsh
@@ -32,26 +32,14 @@ jobs:
             '${{secrets.LTALICENSE}}' | Out-File -FilePath lta.lic    
 
       # download Lemontree.Automation on a runner and setup the license
-      - name: PrepareLTA
+      - name: Run LTA on Docker
         run: |
-          $ltaLicenses = "$(Get-Location)/licenses"
-          $ltaData ="$(Get-Location)" #we map the main repo folder into the docker
-
-          #prepare license
-          New-Item -ItemType Directory -Force -Path "$ltaLicenses"
-          Copy-Item -Path "lta.lic" -Destination "$ltaLicenses" -Force 
-
-          docker stop ltacli
-          docker rm ltacli
-          docker run -itd --name ltacli -v "${ltaData}:/data" -v "${ltaLicenses}:/app/licenses" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
+        
+          docker run -id --name ltacli -v "$(Get-Location):/data" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
+          docker exec -i ltacli ./lemontree.automation ConsistencyCheck --Model "/data/${{env.ModelName}}" --license "/data/lta.lic"
 
 
-      - name: ConsistencyCheck
-        run: |
-          #setup docker exec
-          $LemonTreeExe = "docker exec -it ltacli ./lemontree.automation"
           
-          &$LemonTreeExe ConsistencyCheck --Model "/data/${{env.ModelName}}"
 
  
      
