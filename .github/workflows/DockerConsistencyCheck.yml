@@ -35,20 +35,11 @@ jobs:
       - name: PrepareLTA
         run: |
           $ltaLicenses = "$(Get-Location)/licenses"
-          $ltaData ="$(Get-Location)/data"
+          $ltaData ="$(Get-Location)" #we map the main repo folder into the docker
 
-          #prepare mapping directories for docker mapping
+          #prepare license
           New-Item -ItemType Directory -Force -Path "$ltaLicenses"
-          New-Item -ItemType Directory -Force -Path "$ltaData"
-
-          Copy-Item -Path "/lta.lic" -Destination "$ltaLicenses" -Force 
-
-          #the models used for diffing need to be copied to the data folder
-          Copy-Item -Path "${{env.ModelName}}" -Destination "$ltaData" -Force 
-
-          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\A.qeax" -Destination "$ltaData" -Force 
-          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\B.qeax" -Destination "$ltaData" -Force 
-          #   Copy-Item -Path "C:\ProgramData\LieberLieber\LemonTree\Examples\Base.qeax" -Destination "$ltaData" -Force 
+          Copy-Item -Path "lta.lic" -Destination "$ltaLicenses" -Force 
 
           docker stop ltacli
           docker rm ltacli
