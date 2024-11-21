@@ -35,15 +35,44 @@ jobs:
       - name: Run LTA on Docker
         run: |
         
-          docker run -id --name ltacli -v "$(Get-Location):/data" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
+          Write-Output "Repo Path: $(Get-Location)"
+
+          $outputdir = "${{ runner.temp }}/output"
+          Write-Output "outputpath Path: $outputdir"
+          mkdir "$outputdir"
+          touch "${outputdir}/ltaoutput.txt"
+          
+          
+          docker run -id --name ltacli -v "$(Get-Location):/data"   -v "${outputdir}:/ltaoutput" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
           #docker exec -i ltacli ./lemontree.automation ConsistencyCheck --Model "/data/${{env.ModelName}}" --license "/data/lta.lic"
-          docker exec -i ltacli ./lemontree.automation diff --theirs /data/assets/empty.qeax --mine /data/${{env.ModelName}}  --DiffReportFilename "/data/DiffReport.xml" --license "/data/lta.lic"
+          
+          docker exec -i ltacli ./lemontree.automation diff --theirs /data/assets/empty.qeax --mine /data/${{env.ModelName}}  --DiffReportFilename "/tmp/DiffReport.xml" --license "/data/lta.lic"
+          docker cp ltacli:/tmp/DiffReport.xml /tmp/DiffReport.xml 
+          cat /tmp/DiffReport.xml
+          
+          ls 
+          cd "${outputdir}"
+          ls
+          #testcode for file writting
+          # ls
+          # docker exec -i ltacli mkdir ./app/data/svg  
+          # ls
+          # touch svg/writetest.txt
+          # ls svg/*.*      
+          # docker exec -i ltacli ./lemontree.automation svgexport --Model "/data/${{env.ModelName}}" --diagramdirectory="." --license "/data/lta.lic"
 
       - name: Archive DiffReport.xml
         uses: actions/upload-artifact@v4
         with:
                   name: DiffReport
                   path: .\*.xml
+                  retention-days: 5
+
+      - name: Archive svg 
+        uses: actions/upload-artifact@v4
+        with:
+                  name: SVGDiagrams
+                  path: .\svg\*.svg
                   retention-days: 5
           
 
