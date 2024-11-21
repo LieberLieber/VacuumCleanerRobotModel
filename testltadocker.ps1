@@ -11,7 +11,8 @@
           sudo docker exec -i --user 10:10 ltacli ./lemontree.automation diff --theirs /data/assets/empty.qeax --mine /data/VacuumCleanerRobotModel.qeax --DiffReportFilename "/tmp/DiffReport.xml" --license "/data/lta.lic"
           sudo docker cp ltacli:/tmp/DiffReport.xml /tmp/DiffReport.xml 
 
-          cat /tmp/DiffReport.xml
+          sudo cat /tmp/DiffReport.xml
+          sudo cat /tmp/snap-private-tmp/snap.docker/tmp/DiffReport.xml #very special if you installed docker with snap
           
           #ls 
           
