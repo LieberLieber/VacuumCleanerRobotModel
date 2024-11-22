@@ -34,8 +34,10 @@ jobs:
       - name: Run LTA on Docker
         run: |
       
+          echo "preparing LemonTree.Automation Docker Container"
           docker run -id --name ltacli -v "./:/data" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
           
+          echo "running LemonTree.Automation"
           docker exec -i ltacli ./lemontree.automation diff --theirs /data/assets/empty.qeax --mine /data/${{env.ModelName}}  --DiffReportFilename "/tmp/DiffReport.xml" --license "/data/lta.lic"
           
           # at the moment docker cp is the best way to get data out of the docker - a mounted volume would be better but currently doesn't work in this setup
