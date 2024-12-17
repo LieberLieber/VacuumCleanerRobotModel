@@ -1,5 +1,7 @@
 /.obsidian/
 *.ldb
 /VariantModel/output
-/VariantModel/output
 /VariantModel/TransformationResults
+/lta.lic
+/DiffReportSummary.md
+/DiffReport.xml

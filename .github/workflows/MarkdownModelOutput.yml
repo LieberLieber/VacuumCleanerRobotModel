@@ -1,0 +1,80 @@
+# Copyright (c) Robert Bosch GmbH and LieberLieber Software GmbH
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+name: Output Model to Markdown
+
+on:
+ push:
+#   branches:
+#      - main
+
+env:
+  ModelName: VacuumCleanerRobotModel.qeax
+
+jobs:
+  CreateMarkdown:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0 
+
+      # create LemonTree.Automation License from Actions Secret    
+      - name: PrepareLTALicense 
+        shell: pwsh
+        run: |
+            '${{secrets.LTALICENSE}}' | Out-File -FilePath lta.lic    
+
+      # download Lemontree.Automation on a runner and setup the license
+      - name: Run LTA on Docker
+        run: |
+      
+          echo "preparing LemonTree.Automation Docker Container"
+          docker run -id --name ltacli -v "./:/data" nexus.lieberlieber.com:5000/lieberlieber/lemontree.automation:latest
+          
+          echo "running LemonTree.Automation"
+          docker exec -i ltacli ./lemontree.automation diff --theirs /data/assets/empty.qeax --mine /data/${{env.ModelName}}  --DiffReportFilename "/tmp/DiffReport.xml" --license "/data/lta.lic"
+          
+          # at the moment docker cp is the best way to get data out of the docker - a mounted volume would be better but currently doesn't work in this setup
+
+          docker cp ltacli:/tmp/DiffReport.xml /tmp/DiffReport.xml 
+          cat /tmp/DiffReport.xml
+          
+          docker exec -i ltacli ./lemontree.automation svgexport --Model "/data/${{env.ModelName}}" --diagramdirectory="/tmp/" --license "/data/lta.lic"
+          # docker cp ltacli:/tmp/*.svg /tmp/*.svg #sadly this doesn't work
+          echo "files to download"
+          docker exec ltacli sh -c "ls /tmp/*.svg"
+          docker exec ltacli sh -c "ls /tmp/*.svg" | while read line; do
+             # Check if the line is not empty
+             if [ -n "$line" ]; then
+                echo "File to copy: $line"
+                # Copy the file from the container to the host machine
+                docker cp ltacli:/"$line" /tmp/
+             fi
+          done
+          echo "download finished"
+          ls /tmp/*.svg
+
+      - name: Archive DiffReport.xml
+        uses: actions/upload-artifact@v4
+        with:
+                  name: DiffReport
+                  path: /tmp/DiffReport.xml
+                  retention-days: 5
+
+      - name: Archive svg 
+        uses: actions/upload-artifact@v4
+        with:
+                  name: SVGDiagrams
+                  path: /tmp/*.svg
+                  retention-days: 5
+          
+
+ 
+     
+    
